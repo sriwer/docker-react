@@ -1,9 +1,11 @@
+language: generic
 sudo: required
+
 services:
   - docker
-  
+
 before_install:
-  - docker build -t riwer/docker-react -f Dockerfile.dev. .
-  
- script:
-  - docker run riwer/docker-react npm run test -- --coverage
+  - docker build -t sriwer/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true sriwer/docker-react npm run test
